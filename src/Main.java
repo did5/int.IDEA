@@ -1,7 +1,11 @@
-package PACKAGE_NAME;
-
-/**
- * Created by 0908 on 01.08.2016.
- */
 public class Main {
+    public static void main(String[] args) {
+        System.out.println("main");
+        Test();
+    }
+
+    static void Test() {
+        System.out.println("test");
+
+    }
 }
