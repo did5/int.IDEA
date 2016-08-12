@@ -1,6 +1,3 @@
-/**
- * Created by 0908 on 03.08.2016.
- */
 public class Fibonacci {
     public static void main(String[] args){
         int n0 = 1, n1 = 1, n2;
