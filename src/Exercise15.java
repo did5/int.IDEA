@@ -20,27 +20,23 @@ public class Exercise15 {
         System.out.print("> ");
         String line = in.readLine();
         double x = Double.parseDouble(line);
-        find(x);
-
+        int index = binarySearch(nums, x);
+        System.out.println("Меньшее число = " + nums[index-1]);
+        System.out.println("Большое число = " + nums[index]);
     }
-    public int find(double x) {
-        int i = -1;
-        if (this.nums != null) {
-            int low = 0, high = nums.length, mid;
-            while (low < high) {
-                mid = (low + high)/2; // Можно заменить на расчёт в беззнаковом типе: (low + high) >>> 1
-                if (x == nums[mid]) {
-                    i = mid;
-                    break;
-                } else {
-                    if (x < nums[mid]) {
-                        high = mid;
-                    } else {
-                        low = mid + 1;
-                    }
-                }
-            }
+
+    public static int binarySearch(double[] array, double element){
+        return binarySearch(array, element, 0, array.length-1);
+    }
+
+    private static int binarySearch(double[] array, double element, int left, int right) {
+        int mid = left + (right - left)/2;
+        if ((element < array[mid]) && (mid != left)){
+            return binarySearch(array, element, left, mid-1);
+        } else if (element > array[mid]){
+            return binarySearch(array, element, mid+1, right);
+        } else {
+            return mid;
         }
-        return i;
     }
 }
